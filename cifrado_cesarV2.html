@@ -1,0 +1,54 @@
+<!-- http://es.planetcalc.com/1434/?license=1&language_select=es -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Exercise 1.4</title>
+	<script>
+
+		function cifradoCesar(){
+
+			msjSinCifrar=prompt("TEXTO A CIFRAR");
+			//A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ===> alfabeto ingles
+			var alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p","q", "r", "s", "t","u", "v", "w", "x", "y", "z"];
+			msjSinCifrar = msjSinCifrar.toLowerCase();
+			var longMsj = msjSinCifrar.length;
+			var txtCifrado = [];
+			var txtDescifrado = [];
+			var indiceAlfabeto;
+			var i;
+
+			// CIFRAR
+			
+			document.write("<br><strong>Mensaje sin cifrar: </strong>"+msjSinCifrar);
+			document.write("<br><strong>Mensaje cifrado: </strong>");
+			for (i=0; i<longMsj; i++){
+				indiceAlfabeto = alfabeto.indexOf(msjSinCifrar.charAt(i));
+				indiceAlfabeto = (indiceAlfabeto+3)%26;
+				txtCifrado [i] = alfabeto[indiceAlfabeto];
+				document.write(txtCifrado[i]);
+			}
+
+			// DESCIFRAR
+			
+			document.write("<br><strong>Mensaje descifrado: </strong>");
+			for (i=0; i<longMsj; i++){
+				indiceAlfabeto = alfabeto.indexOf(txtCifrado[i]);
+				indiceAlfabeto = (indiceAlfabeto-3)%26;
+				txtDescifrado [i] = alfabeto[indiceAlfabeto];
+				document.write(txtDescifrado[i]);
+			}
+		}
+		
+	</script>
+</head>
+	<body>
+		<header>
+			<h2>CIFRADO CESAR</h2>
+			<script>
+				cifradoCesar();
+			</script>
+		</header>
+	</body>
+</html>
